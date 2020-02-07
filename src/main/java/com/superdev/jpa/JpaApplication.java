@@ -20,9 +20,11 @@ public class JpaApplication {
 
 			tx.begin(); //트랜잭션 시작
 
-			Member findMember = em.find(Member.class, "id1");
+			Member findMember = em.find(Member.class, "id2");
 
 			em.remove(findMember);
+
+			em.detach(findMember);
 
 			System.out.println("==============before=================");
 			tx.commit();//트랜잭션 커밋
