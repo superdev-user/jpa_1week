@@ -16,6 +16,9 @@ public class JpaApplication {
 
 		try {
 
+			/**
+			 * Transaction과 Persistence Context( 영속성 컨텍스트 )
+			 */
 
 			tx.begin(); //트랜잭션 시작
 
