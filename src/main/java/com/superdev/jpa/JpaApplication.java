@@ -1,7 +1,5 @@
 package com.superdev.jpa;
 
-import java.util.List;
-
 import javax.persistence.*;
 
 public class JpaApplication {
@@ -17,20 +15,18 @@ public class JpaApplication {
 		try {
 
 			/**
-			 * Transaction과 Persistence Context( 영속성 컨텍스트 )
+			 * update
 			 */
 
 			tx.begin(); //트랜잭션 시작
 
-			Member findMember1 = em.find(Member.class, "id1");
-			Member findMember2 = em.find(Member.class, "id2");
+			Member findMember = em.find(Member.class, "id1");
 
-			System.out.println("findMember1=" + findMember1.getUsername() + ", age=" + findMember1.getAge());
-			System.out.println("findMember2=" + findMember2.getUsername() + ", age=" + findMember2.getAge());
+			findMember.setAge(100);
 
-			System.out.print("==============before=================");
+			System.out.println("==============before=================");
 			tx.commit();//트랜잭션 커밋
-			System.out.print("==============after=================");
+			System.out.println("==============after=================");
 
 		} catch (Exception e) {
 			e.printStackTrace();
