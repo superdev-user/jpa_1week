@@ -16,6 +16,15 @@ public class Member {
 
     private Integer age;
 
+    public Member() {
+    }
+
+    public Member(String id, String username, Integer age) {
+        this.id = id;
+        this.username = username;
+        this.age = age;
+    }
+
     public String getId() {
         return id;
     }

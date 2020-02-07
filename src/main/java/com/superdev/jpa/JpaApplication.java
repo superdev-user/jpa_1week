@@ -1,5 +1,7 @@
 package com.superdev.jpa;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 public class JpaApplication {
@@ -17,8 +19,15 @@ public class JpaApplication {
 
 			tx.begin(); //트랜잭션 시작
 
+			Member member = new Member("id1", "test1", 2);
+			em.persist(member);
 
+			Member member2 = new Member("id2", "test2", 4);
+			em.persist(member2);
+
+			System.out.print("==============before=================");
 			tx.commit();//트랜잭션 커밋
+			System.out.print("==============after=================");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -29,5 +38,4 @@ public class JpaApplication {
 
 		emf.close(); //엔티티 매니저 팩토리 종료
 	}
-
 }
