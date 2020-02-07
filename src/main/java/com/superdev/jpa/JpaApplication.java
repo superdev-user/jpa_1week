@@ -15,14 +15,14 @@ public class JpaApplication {
 		try {
 
 			/**
-			 * update
+			 * delete
 			 */
 
 			tx.begin(); //트랜잭션 시작
 
 			Member findMember = em.find(Member.class, "id1");
 
-			findMember.setAge(100);
+			em.remove(findMember);
 
 			System.out.println("==============before=================");
 			tx.commit();//트랜잭션 커밋
