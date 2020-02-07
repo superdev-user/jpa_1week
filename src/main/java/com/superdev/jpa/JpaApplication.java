@@ -22,11 +22,9 @@ public class JpaApplication {
 
 			tx.begin(); //트랜잭션 시작
 
-			Member member = new Member("id1", "test1", 2);
-			em.persist(member);
+			Member findMember = em.find(Member.class, "id1");
 
-			Member member2 = new Member("id2", "test2", 4);
-			em.persist(member2);
+			System.out.println("findMember=" + findMember.getUsername() + ", age=" + findMember.getAge());
 
 			System.out.print("==============before=================");
 			tx.commit();//트랜잭션 커밋
